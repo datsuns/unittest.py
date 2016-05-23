@@ -1,6 +1,8 @@
 sources := $(shell find . | grep py$)
 
+.PHONY: default test
+
 default: test
 
-test: $(sources)
+test:
 	python -m unittest discover
