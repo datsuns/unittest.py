@@ -3,7 +3,7 @@
 default: auto_test
 
 test:
-	python -m unittest discover
+	PYTHONDONTWRITEBYTECODE=1 python -m unittest discover
 
 auto_test:
 	filewatcher "**/*.py" "make test"
