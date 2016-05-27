@@ -1,8 +1,14 @@
-sources := $(shell find . | grep py$)
+.PHONY: default test auto_test setup
 
-.PHONY: default test
-
-default: test
+default: auto_test
 
 test:
 	python -m unittest discover
+
+auto_test:
+	filewatcher "**/*.py" "make test"
+
+setup:
+	sudo pip install testtools
+	gem install filewatcher
+
